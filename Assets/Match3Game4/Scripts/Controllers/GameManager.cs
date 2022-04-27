@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    internal void SetState(eStateGame state)
+    public void SetState(eStateGame state)
     {
         State = state;
 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitBoardController());
     }
 
-    internal void ClearLevel()
+    public void ClearLevel()
     {
         if (m_boardController)
         {

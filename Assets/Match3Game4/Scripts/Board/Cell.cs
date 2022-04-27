@@ -54,7 +54,7 @@ public class Cell : MonoBehaviour
         }
     }
 
-    internal void Clear()
+    public void Clear()
     {
         if (Item != null)
         {
@@ -63,12 +63,12 @@ public class Cell : MonoBehaviour
         }
     }
 
-    internal bool IsSameType(Cell other)
+    public bool IsSameType(Cell other)
     {
         return Item != null && other.Item != null && Item.IsSameType(other.Item);
     }
 
-    internal void ExplodeItem()
+    public void ExplodeItem()
     {
         if (Item == null) return;
 
@@ -76,17 +76,17 @@ public class Cell : MonoBehaviour
         Item = null;
     }
 
-    internal void AnimateItemForHint()
+    public void AnimateItemForHint()
     {
         Item.AnimateForHint();
     }
 
-    internal void StopHintAnimation()
+    public void StopHintAnimation()
     {
         Item.StopAnimateForHint();
     }
 
-    internal void ApplyItemMoveToPosition()
+    public void ApplyItemMoveToPosition()
     {
         Item.AnimationMoveToPosition();
     }

@@ -41,14 +41,14 @@ public class BonusItem : Item
         return prefabname;
     }
 
-    internal override bool IsSameType(Item other)
+    public override bool IsSameType(Item other)
     {
         BonusItem it = other as BonusItem;
 
         return it != null && it.ItemType == this.ItemType;
     }
 
-    internal override void ExplodeView()
+    public override void ExplodeView()
     {
         ActivateBonus();
 

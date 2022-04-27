@@ -53,7 +53,7 @@ public class NormalItem : Item
         return prefabname;
     }
 
-    internal override bool IsSameType(Item other)
+    public override bool IsSameType(Item other)
     {
         NormalItem it = other as NormalItem;
 

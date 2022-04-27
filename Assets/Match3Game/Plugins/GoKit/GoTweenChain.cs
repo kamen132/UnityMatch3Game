@@ -7,7 +7,7 @@ public class GoTweenChain : AbstractGoTweenCollection
 	public GoTweenChain() : this(new GoTweenCollectionConfig()) {}
 	public GoTweenChain(GoTweenCollectionConfig config) : base(config) {}
 
-	#region internal Chain management
+	#region public Chain management
 	
 	private void append( TweenFlowItem item )
 	{

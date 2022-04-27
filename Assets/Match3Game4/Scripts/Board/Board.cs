@@ -63,16 +63,20 @@ public class Board
         {
             for (int y = 0; y < boardSizeY; y++)
             {
-                if (y + 1 < boardSizeY) m_cells[x, y].NeighbourUp = m_cells[x, y + 1];
-                if (x + 1 < boardSizeX) m_cells[x, y].NeighbourRight = m_cells[x + 1, y];
-                if (y > 0) m_cells[x, y].NeighbourBottom = m_cells[x, y - 1];
-                if (x > 0) m_cells[x, y].NeighbourLeft = m_cells[x - 1, y];
+                if (y + 1 < boardSizeY) 
+                    m_cells[x, y].NeighbourUp = m_cells[x, y + 1];
+                if (x + 1 < boardSizeX) 
+                    m_cells[x, y].NeighbourRight = m_cells[x + 1, y];
+                if (y > 0) m_cells[x, y].
+                    NeighbourBottom = m_cells[x, y - 1];
+                if (x > 0) 
+                    m_cells[x, y].NeighbourLeft = m_cells[x - 1, y];
             }
         }
 
     }
 
-    internal void Fill()
+    public void Fill()
     {
         for (int x = 0; x < boardSizeX; x++)
         {
@@ -110,7 +114,7 @@ public class Board
         }
     }
 
-    internal void Shuffle()
+    public void Shuffle()
     {
         List<Item> list = new List<Item>();
         for (int x = 0; x < boardSizeX; x++)
@@ -136,7 +140,7 @@ public class Board
     }
 
 
-    internal void FillGapsWithNewItems()
+    public void FillGapsWithNewItems()
     {
         for (int x = 0; x < boardSizeX; x++)
         {
@@ -157,7 +161,7 @@ public class Board
         }
     }
 
-    internal void ExplodeAllItems()
+    public void ExplodeAllItems()
     {
         for (int x = 0; x < boardSizeX; x++)
         {
@@ -256,7 +260,7 @@ public class Board
         return list;
     }
 
-    internal void ConvertNormalToBonus(List<Cell> matches, Cell cellToConvert)
+    public void ConvertNormalToBonus(List<Cell> matches, Cell cellToConvert)
     {
         eMatchDirection dir = GetMatchDirection(matches);
 
@@ -292,7 +296,7 @@ public class Board
     }
 
 
-    internal eMatchDirection GetMatchDirection(List<Cell> matches)
+    public eMatchDirection GetMatchDirection(List<Cell> matches)
     {
         if (matches == null || matches.Count < m_matchMin) return eMatchDirection.NONE;
 
@@ -316,7 +320,7 @@ public class Board
         return eMatchDirection.NONE;
     }
 
-    internal List<Cell> FindFirstMatch()
+    public List<Cell> FindFirstMatch()
     {
         List<Cell> list = new List<Cell>();
 
@@ -393,7 +397,7 @@ public class Board
         return result;
     }
 
-    internal List<Cell> GetPotentialMatches()
+    public List<Cell> GetPotentialMatches()
     {
         List<Cell> result = new List<Cell>();
         for (int x = 0; x < boardSizeX; x++)
@@ -633,7 +637,7 @@ public class Board
         return null;
     }
 
-    internal void ShiftDownItems()
+    public void ShiftDownItems()
     {
         for (int x = 0; x < boardSizeX; x++)
         {

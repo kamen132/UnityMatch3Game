@@ -24,7 +24,7 @@ public class UIMainManager : MonoBehaviour
         }
     }
 
-    internal void ShowMainMenu()
+    public void ShowMainMenu()
     {
         m_gameManager.ClearLevel();
         m_gameManager.SetState(GameManager.eStateGame.MAIN_MENU);
@@ -45,7 +45,7 @@ public class UIMainManager : MonoBehaviour
         }
     }
 
-    internal void Setup(GameManager gameManager)
+    public void Setup(GameManager gameManager)
     {
         m_gameManager = gameManager;
         m_gameManager.StateChangedAction += OnGameStateChange;
@@ -88,7 +88,7 @@ public class UIMainManager : MonoBehaviour
         }
     }
 
-    internal Text GetLevelConditionView()
+    public Text GetLevelConditionView()
     {
         UIPanelGame game = m_menuList.Where(x => x is UIPanelGame).Cast<UIPanelGame>().FirstOrDefault();
         if (game)
@@ -99,22 +99,22 @@ public class UIMainManager : MonoBehaviour
         return null;
     }
 
-    internal void ShowPauseMenu()
+    public void ShowPauseMenu()
     {
         m_gameManager.SetState(GameManager.eStateGame.PAUSE);
     }
 
-    internal void LoadLevelMoves()
+    public void LoadLevelMoves()
     {
         m_gameManager.LoadLevel(GameManager.eLevelMode.MOVES);
     }
 
-    internal void LoadLevelTimer()
+    public void LoadLevelTimer()
     {
         m_gameManager.LoadLevel(GameManager.eLevelMode.TIMER);
     }
 
-    internal void ShowGameMenu()
+    public void ShowGameMenu()
     {
         m_gameManager.SetState(GameManager.eStateGame.GAME_STARTED);
     }

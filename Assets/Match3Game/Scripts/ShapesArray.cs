@@ -63,12 +63,14 @@ public class ShapesArray
         shapes[g1Row, g1Column] = shapes[g2Row, g2Column];
         shapes[g2Row, g2Column] = temp;
 
+        //交换各自的属性
         //swap their respective properties
         Shape.SwapColumnRow(g1Shape, g2Shape);
 
     }
 
     /// <summary>
+    /// 破除了交换
     /// Undoes the swap
     /// </summary>
     public void UndoSwap()

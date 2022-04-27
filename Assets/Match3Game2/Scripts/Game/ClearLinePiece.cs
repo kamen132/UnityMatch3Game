@@ -1,4 +1,4 @@
-﻿internal class ClearLinePiece : ClearablePiece
+﻿public class ClearLinePiece : ClearablePiece
 {
     public bool isRow;
 

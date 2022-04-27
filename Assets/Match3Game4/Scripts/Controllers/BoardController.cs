@@ -279,7 +279,7 @@ public class BoardController : MonoBehaviour
         return cell1.IsNeighbour(cell2);
     }
 
-    internal void Clear()
+    public void Clear()
     {
         m_board.Clear();
     }

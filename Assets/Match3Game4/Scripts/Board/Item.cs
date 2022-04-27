@@ -33,7 +33,7 @@ public class Item
         Cell = cell;
     }
 
-    internal void AnimationMoveToPosition()
+    public void AnimationMoveToPosition()
     {
         if (View == null) return;
 
@@ -80,7 +80,7 @@ public class Item
 
     }
 
-    internal void ShowAppearAnimation()
+    public void ShowAppearAnimation()
     {
         if (View == null) return;
 
@@ -89,12 +89,12 @@ public class Item
         View.DOScale(scale, 0.1f);
     }
 
-    internal virtual bool IsSameType(Item other)
+    public virtual bool IsSameType(Item other)
     {
         return false;
     }
 
-    internal virtual void ExplodeView()
+    public virtual void ExplodeView()
     {
         if (View)
         {
@@ -110,7 +110,7 @@ public class Item
 
 
 
-    internal void AnimateForHint()
+    public void AnimateForHint()
     {
         if (View)
         {
@@ -118,7 +118,7 @@ public class Item
         }
     }
 
-    internal void StopAnimateForHint()
+    public void StopAnimateForHint()
     {
         if (View)
         {
@@ -126,7 +126,7 @@ public class Item
         }
     }
 
-    internal void Clear()
+    public void Clear()
     {
         Cell = null;
 
