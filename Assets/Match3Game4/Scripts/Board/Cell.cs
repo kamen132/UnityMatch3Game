@@ -16,6 +16,8 @@ public class Cell : MonoBehaviour
     public Cell NeighbourBottom { get; set; }
 
     public Cell NeighbourLeft { get; set; }
+    
+    public bool CanMove { get { return Item.canMove; } }
 
 
     public bool IsEmpty => Item == null;

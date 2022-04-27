@@ -11,6 +11,7 @@ public class Item
 
     public Transform View { get; private set; }
 
+    public bool canMove { get; protected set; }
 
     public virtual void SetView()
     {
@@ -35,6 +36,10 @@ public class Item
 
     public void AnimationMoveToPosition()
     {
+        if (!canMove)
+        {
+            return;
+        }
         if (View == null) return;
 
         View.DOMove(Cell.transform.position, 0.2f);

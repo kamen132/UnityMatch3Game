@@ -175,6 +175,10 @@ public class Board
 
     public void Swap(Cell cell1, Cell cell2, Action callback)
     {
+        if (!cell1.CanMove||!cell2.CanMove)
+        {
+            return;
+        }
         Item item = cell1.Item;
         cell1.Free();
         Item item2 = cell2.Item;

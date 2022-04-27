@@ -25,6 +25,7 @@ public class NormalItem : Item
     protected override string GetPrefabName()
     {
         string prefabname = string.Empty;
+        this.canMove = false;
         switch (ItemType)
         {
             case eNormalType.TYPE_ONE:
