@@ -15,4 +15,11 @@ public class GameSettings : ScriptableObject
     public float LevelTime = 30f;
 
     public float TimeForHint = 5f;
+    [SerializeField]
+    public List<CellSet> CellSetList;
+}
+[SerializeField]
+public class CellSet:ScriptableObject
+{
+    public List<NormalItem.eNormalType> itemList;
 }

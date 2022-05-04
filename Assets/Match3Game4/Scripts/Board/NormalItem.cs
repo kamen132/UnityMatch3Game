@@ -25,10 +25,11 @@ public class NormalItem : Item
     protected override string GetPrefabName()
     {
         string prefabname = string.Empty;
-        this.canMove = false;
         switch (ItemType)
         {
             case eNormalType.TYPE_ONE:
+                canMove = false;
+                isFixed = true;
                 prefabname = Constants.PREFAB_NORMAL_TYPE_ONE;
                 break;
             case eNormalType.TYPE_TWO:

@@ -45,6 +45,17 @@ public class BoardController : MonoBehaviour
 
         Fill();
     }
+    
+    public void StartGame2(GameSettings gameSettings)
+    {
+        //m_gameManager.StateChangedAction += OnGameStateChange;
+        m_gameSettings = gameSettings;
+        m_cam = Camera.main;
+
+        m_board = new Board(this.transform, gameSettings);
+
+        Fill();
+    }
 
     private void Fill()
     {
@@ -54,26 +65,29 @@ public class BoardController : MonoBehaviour
 
     private void OnGameStateChange(GameManager.eStateGame state)
     {
-        switch (state)
-        {
-            case GameManager.eStateGame.GAME_STARTED:
-                IsBusy = false;
-                break;
-            case GameManager.eStateGame.PAUSE:
-                IsBusy = true;
-                break;
-            case GameManager.eStateGame.GAME_OVER:
-                m_gameOver = true;
-                StopHints();
-                break;
-        }
+        IsBusy = false;
+        // switch (state)
+        // {
+        //     case GameManager.eStateGame.GAME_STARTED:
+        //         IsBusy = false;
+        //         break;
+        //     case GameManager.eStateGame.PAUSE:
+        //         IsBusy = true;
+        //         break;
+        //     case GameManager.eStateGame.GAME_OVER:
+        //         m_gameOver = true;
+        //         StopHints();
+        //         break;
+        // }
     }
 
 
     public void Update()
     {
-        if (m_gameOver) return;
-        if (IsBusy) return;
+        // if (m_gameOver) 
+        //     return;
+        // if (IsBusy) 
+        //     return;
 
         if (!m_hintIsShown)
         {
@@ -113,7 +127,7 @@ public class BoardController : MonoBehaviour
                     Cell c2 = hit.collider.GetComponent<Cell>();
                     if (AreItemsNeighbor(c1, c2))
                     {
-                        IsBusy = true;
+                        //IsBusy = true;
                         SetSortingLayer(c1, c2);
                         m_board.Swap(c1, c2, () =>
                         {
@@ -175,6 +189,9 @@ public class BoardController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 找到两个相同的
+    /// </summary>
     private void FindMatchesAndCollapse()
     {
         List<Cell> matches = m_board.FindFirstMatch();
@@ -194,8 +211,8 @@ public class BoardController : MonoBehaviour
             }
             else
             {
-                //StartCoroutine(RefillBoardCoroutine());
-                StartCoroutine(ShuffleBoardCoroutine());
+                StartCoroutine(RefillBoardCoroutine());
+                //StartCoroutine(ShuffleBoardCoroutine());
             }
         }
     }
@@ -234,10 +251,11 @@ public class BoardController : MonoBehaviour
 
     private IEnumerator ShiftDownItemsCoroutine()
     {
+        //棋子落下
         m_board.ShiftDownItems();
 
         yield return new WaitForSeconds(0.2f);
-
+        //填充新的棋子
         m_board.FillGapsWithNewItems();
 
         yield return new WaitForSeconds(0.2f);

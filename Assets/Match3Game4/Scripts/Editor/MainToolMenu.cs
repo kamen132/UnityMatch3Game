@@ -19,6 +19,7 @@ public class MainToolMenu
 
         Selection.activeObject = asset;
     }
+    
 
 
     [MenuItem(menuTitle + "Open Game Settings", false, 410)]

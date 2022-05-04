@@ -16,9 +16,30 @@ public class Cell : MonoBehaviour
     public Cell NeighbourBottom { get; set; }
 
     public Cell NeighbourLeft { get; set; }
-    
-    public bool CanMove { get { return Item.canMove; } }
 
+    public bool CanMove
+    {
+        get
+        {
+            if (Item!=null)
+            {
+                return Item.CanMove;
+            }
+            return true;
+        }
+    }
+
+    public bool IsFixed
+    {
+        get
+        {
+            if (Item!=null)
+            {
+                return Item.IsFixed;
+            }
+            return false;
+        }
+    }
 
     public bool IsEmpty => Item == null;
 

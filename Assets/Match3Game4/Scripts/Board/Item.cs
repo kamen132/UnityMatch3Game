@@ -11,7 +11,20 @@ public class Item
 
     public Transform View { get; private set; }
 
-    public bool canMove { get; protected set; }
+    protected bool canMove=true;
+    /// <summary>
+    /// 是否能移动
+    /// </summary>
+    public bool CanMove { get { return canMove;} }
+
+    protected bool isFixed = false;
+    /// <summary>
+    /// 是否是固定棋子
+    /// </summary>
+    public bool IsFixed { get { return isFixed; } }
+
+    protected int hitCount = 0;
+    public int HitCount { get { return hitCount; } }
 
     public virtual void SetView()
     {
@@ -32,6 +45,7 @@ public class Item
     public virtual void SetCell(Cell cell)
     {
         Cell = cell;
+        View.name = string.Format("[{0},{1}]", cell.BoardX, cell.BoardY);
     }
 
     public void AnimationMoveToPosition()

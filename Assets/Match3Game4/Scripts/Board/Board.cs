@@ -38,6 +38,7 @@ public class Board
 
         CreateBoard();
     }
+    
 
     private void CreateBoard()
     {
@@ -646,19 +647,56 @@ public class Board
         for (int x = 0; x < boardSizeX; x++)
         {
             int shifts = 0;
+            //固定的Pos位置
+            int fixedPosY = 0;
+            List<Cell> fixedYList = new List<Cell>();
             for (int y = 0; y < boardSizeY; y++)
             {
                 Cell cell = m_cells[x, y];
+                if (cell.IsFixed)
+                {
+                    fixedYList.Add(cell);
+                }
+            }
+            
+            for (int y = 0; y < boardSizeY; y++)
+            {
+                Cell cell = m_cells[x, y];
+                if (cell.IsFixed)
+                {
+                    continue;
+                }
+
                 if (cell.IsEmpty)
                 {
                     shifts++;
                     continue;
                 }
 
-                if (shifts == 0) continue;
 
-                Cell holder = m_cells[x, y - shifts];
+                if (shifts == 0) 
+                    continue;
 
+
+                Cell holder;
+                if (cell.NeighbourBottom.IsFixed)
+                {
+                    int bottomCount = 0;
+                    Cell bottomFiex = cell.NeighbourBottom;
+                    while (bottomFiex.IsFixed)
+                    {
+                        bottomFiex = bottomFiex.NeighbourBottom;
+                        bottomCount++;
+                    }
+                    Debug.LogError($"Inity1=={  y }   y1=={(y - shifts-bottomCount)}");
+                    holder = m_cells[x, y - shifts-bottomCount];
+                }
+                else
+                {
+                    holder = m_cells[x, y - shifts];
+                    Debug.LogError($"Inity2=={  y }  y2=="+(y - shifts));
+                }
+                
                 Item item = cell.Item;
                 cell.Free();
 
